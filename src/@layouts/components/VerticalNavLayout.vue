@@ -28,8 +28,9 @@ export default defineComponent({
       // 👉 Navbar
       const navbar = h('header', { class: ['layout-navbar navbar-blur'] }, [ 
         h('div', { class: 'navbar-content-container' }, slots.navbar?.({
-          toggleVerticalOverlayNavActive: toggleIsOverlayNavActive,
-        })),
+          toggleNavActive: toggleIsOverlayNavActive,
+        })
+      ),
       ])
 
       const main = h('main', { class: 'layout-page-content' }, h('div', { class: 'page-content-container' }, slots.default?.()))
@@ -42,10 +43,10 @@ export default defineComponent({
 
 
       // 👉 Overlay
-      // const layoutOverlay = h('div', {
-      //   class: ['layout-overlay', { visible: isLayoutOverlayVisible.value }],
-      //   // onClick: () => { isLayoutOverlayVisible.value = !isLayoutOverlayVisible.value },
-      // })
+      const layoutOverlay = h('div', {
+        class: ['layout-overlay', { visible: isLayoutOverlayVisible.value }, 'd-block', 'd-lg-none'],
+        // onClick: () => { isLayoutOverlayVisible.value = !isLayoutOverlayVisible.value },
+      })
 
       return h('div', {
         class: [
@@ -60,7 +61,7 @@ export default defineComponent({
           main,
           footer,
         ]),
-        // layoutOverlay,
+        layoutOverlay,
       ])
     }
   },

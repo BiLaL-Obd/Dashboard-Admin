@@ -10,13 +10,10 @@ import VerticalNavLayout from '@layouts/components/VerticalNavLayout.vue'
 <template>
   <VerticalNavLayout>
     <!-- 👉 navbar -->
-    <template #navbar="{ toggleVerticalOverlayNavActive }">
+    <template #navbar="{ toggleNavActive }">
       <div class="d-flex h-100 align-center">
         <!-- 👉 Vertical nav toggle in overlay mode -->
-        <IconBtn
-          class="ms-n3"
-          @click="toggleVerticalOverlayNavActive(true)"
-        >
+        <IconBtn class="ms-n3" @click="toggleNavActive(true);" >
           <VIcon icon="ri-menu-line" />
         </IconBtn>
 
@@ -49,9 +46,7 @@ import VerticalNavLayout from '@layouts/components/VerticalNavLayout.vue'
         </h1>
       </RouterLink>
 
-      <IconBtn
-        @click="toggleIsOverlayNavActive(false)"
-      >
+      <IconBtn @click="toggleIsOverlayNavActive(false);" >
         <VIcon icon="ri-close-line" />
       </IconBtn>
     </template>
